@@ -83,6 +83,7 @@ namespace CRM_Proyect
                 + "<li><a href = 'VerPropuestas.aspx' ><i class='fa fa-circle-o'></i> Ver Propuestas</a></li>"
                 + "<li><a href = 'CrearVenta.aspx'><i class='fa fa-circle-o'></i> Crear Venta</a></li>"
                 + "<li><a href = 'VerVentas.aspx'><i class='fa fa-circle-o'></i> Ver Ventas</a></li>"
+                + "<li><a href = 'RegistrarError.aspx'><i class='fa fa-circle-o'></i> Registrar Error</a></li>"
                 + "</ul>"
                 + "</li>"
                 );
@@ -100,7 +101,10 @@ namespace CRM_Proyect
                   + " <a href='ComentarPropuesta.aspx'>"
                   + "<i class='fa fa-commenting-o'></i> <span>Propuestas de ventas</span>"
                   + "</a>"
-                  + "</li>");
+                  + "</li>"
+                  + "<li><a href = 'RegistrarError.aspx'><i class='fa fa-circle-o'></i> Registrar Error</a></li>"
+
+                  );
         }
     }
 }
