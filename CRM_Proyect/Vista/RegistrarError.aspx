@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="registrarError.aspx.cs" Inherits="CRM_Proyect.Vista.registrarError" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="RegistrarError.aspx.cs" Inherits="CRM_Proyect.Vista.registrarError" %>
 
 <!DOCTYPE html>
 

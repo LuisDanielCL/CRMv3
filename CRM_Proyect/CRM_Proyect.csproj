@@ -176,6 +176,7 @@
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Vista\CrearVenta.aspx" />
     <Content Include="Vista\ComentarPropuesta.aspx" />
+    <Content Include="Vista\RegistrarError.aspx" />
     <Content Include="Vista\VerVentas.aspx" />
     <Content Include="Vista\Compras.aspx" />
     <Content Include="Vista\VerPropuestas.aspx" />
@@ -12794,6 +12795,13 @@
     </Compile>
     <Compile Include="Modelo\ConsultaVenta.cs" />
     <Compile Include="Modelo\Venta.cs" />
+    <Compile Include="Vista\RegistrarError.aspx.cs">
+      <DependentUpon>RegistrarError.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\RegistrarError.aspx.designer.cs">
+      <DependentUpon>RegistrarError.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Vista\VerVentas.aspx.cs">
       <DependentUpon>VerVentas.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
