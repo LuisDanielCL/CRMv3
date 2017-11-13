@@ -43,6 +43,7 @@ namespace CRM_Proyect.Modelo
                 result = System.Text.Encoding.Unicode.GetString(decryted);
                 return result;
             
+
             
             
         }
