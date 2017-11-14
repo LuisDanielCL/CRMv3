@@ -12,7 +12,7 @@
                 </div>
                 <div class="form-group">
                   <label for="descripcion">Descripción</label>
-                  <input  class="form-control" id="descripcionInput">
+                  <textarea  class="form-control" id="descripcionInput"></textarea>
                 </div>  
               </div>
               <!-- /.box-body -->

@@ -782,6 +782,9 @@ function enviarError() {
         //Respuesta del servidor
         console.log(info);
         alert(info.d)
+        document.getElementById("tituloInput").value = "";
+        document.getElementById("descripcionInput").value = "";
+
         //alert("exito");
     });
 }

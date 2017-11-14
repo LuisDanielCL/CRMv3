@@ -20,9 +20,8 @@ namespace CRM_Proyect.Vista
         public static string enviarError(string titulo, string descripcion)
         {
 
-            //Controlador controlador = Controlador.getInstance();
-            return titulo + ", " + descripcion;
-            //return controlador.enviarError(titulo, descripcion);
+            Controlador controlador = Controlador.getInstance();
+            return controlador.enviarError(titulo, descripcion);
         }
     }
 }

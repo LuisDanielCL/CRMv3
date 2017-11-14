@@ -44,8 +44,7 @@ namespace CRM_Proyect.Modelo
         {
             iniciarConexion();
             MySqlCommand instruccion = conexion.CreateCommand();
-            instruccion.CommandText = "call enviarError('" + titulo + "', '" + descripcion + "')";
-
+            instruccion.CommandText = "call enviarError('" + titulo + "', '" + descripcion + " '," + Consulta.idUsuarioActual + ")";
             // La consulta podría generar errores
             try
             {

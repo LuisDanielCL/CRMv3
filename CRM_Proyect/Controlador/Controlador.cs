@@ -391,9 +391,9 @@ public class Controlador{
         {
             return "Título debe tener como máximo 50 digitos";
         }
-        else if (descripcion.Trim().Length > 50)
+        else if (descripcion.Trim().Length > 200)
         {
-            return "Descripción debe tener como máximo 50 dígitos";
+            return "Descripción debe tener como máximo 200 dígitos";
         }
         if (titulo.Trim().Length == 0)
         {
@@ -405,12 +405,9 @@ public class Controlador{
         }
 
         //Query
-        int resultadoInsercion = 2;// error.enviarError(precio, descuento, comision, idComprador);
+        int resultadoInsercion = error.enviarError(titulo, descripcion);
         switch (resultadoInsercion)
         {
-            case PRODUCTOS_INSUFICIENTES:
-                return "Productos Insuficientes, Seleccione al menos un producto";
-
             case FALLO_DE_INSERCION:
                 return "Falló la inserción";
             default:
