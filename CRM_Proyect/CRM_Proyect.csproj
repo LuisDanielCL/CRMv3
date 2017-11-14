@@ -12779,6 +12779,7 @@
     <Compile Include="Modelo\ClassTest\IPropuestaVenta.cs" />
     <Compile Include="Modelo\ClassTest\IVenta.cs" />
     <Compile Include="Modelo\Conexion.cs" />
+    <Compile Include="Modelo\ModeloError.cs" />
     <Compile Include="Vista\CrearVenta.aspx.cs">
       <DependentUpon>CrearVenta.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

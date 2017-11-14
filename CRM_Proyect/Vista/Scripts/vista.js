@@ -759,6 +759,36 @@ function crearVenta() {
     });
 }
 
+// Crea un nuevo reporte de error
+// Toma los valores del form
+function enviarError() {
+    $titulo = $("#tituloInput").val();
+    $descripcion = $("#descripcionInput").val();
+    
+
+    var data = {
+        titulo: $titulo,
+        descripcion: $descripcion
+    }
+    $.ajax({
+
+        method: "POST",
+        url: "/Vista/RegistrarError.aspx/enviarError",
+        data: JSON.stringify(data),
+        contentType: "application/json; charset=utf-8",
+        dataType: "json"
+
+    }).done(function (info) {
+        //Respuesta del servidor
+        console.log(info);
+        alert(info.d)
+        //alert("exito");
+    });
+}
+
+
+
+
 // Despliega los productos de una venta específica
 // que recive como parámetro
 function verProductosVenta(id) {
