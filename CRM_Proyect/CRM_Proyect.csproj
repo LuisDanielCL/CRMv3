@@ -177,6 +177,7 @@
     <Content Include="Vista\CrearVenta.aspx" />
     <Content Include="Vista\ComentarPropuesta.aspx" />
     <Content Include="Vista\RegistrarError.aspx" />
+    <Content Include="Vista\VerErrores.aspx" />
     <Content Include="Vista\VerVentas.aspx" />
     <Content Include="Vista\Compras.aspx" />
     <Content Include="Vista\VerPropuestas.aspx" />
@@ -12779,6 +12780,7 @@
     <Compile Include="Modelo\ClassTest\IPropuestaVenta.cs" />
     <Compile Include="Modelo\ClassTest\IVenta.cs" />
     <Compile Include="Modelo\Conexion.cs" />
+    <Compile Include="Modelo\ErrorConsulta.cs" />
     <Compile Include="Modelo\ModeloError.cs" />
     <Compile Include="Vista\CrearVenta.aspx.cs">
       <DependentUpon>CrearVenta.aspx</DependentUpon>
@@ -12802,6 +12804,13 @@
     </Compile>
     <Compile Include="Vista\RegistrarError.aspx.designer.cs">
       <DependentUpon>RegistrarError.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\VerErrores.aspx.cs">
+      <DependentUpon>VerErrores.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\VerErrores.aspx.designer.cs">
+      <DependentUpon>VerErrores.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vista\VerVentas.aspx.cs">
       <DependentUpon>VerVentas.aspx</DependentUpon>

@@ -413,6 +413,17 @@ public class Controlador{
             default:
                 return "Éxito";
         }
+
+
+    }
+    public List<ErrorConsulta> obtenerErrores()
+    {
+        return consultas.obtenerErrores();
     }
 
+
+    public Boolean eliminarError(int idError)
+    {
+        return consultas.eliminarError(idError);
+    }
 }
