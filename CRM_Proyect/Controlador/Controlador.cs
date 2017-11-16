@@ -46,6 +46,7 @@ public class Controlador{
     private ConsultaPropuestaVenta propuesta = new ConsultaPropuestaVenta();
     private ConsultaComentario comentario = new ConsultaComentario();
     private ConsultaVenta venta = new ConsultaVenta();
+    private ModeloError error = new ModeloError();
 
     public Controlador() {
         
@@ -388,6 +389,47 @@ public class Controlador{
         return venta.verProductosVenta(idVenta);
     }
 
+    public string enviarError(string titulo, string descripcion)
+    {
+        //Validando los parámetros
+
+        if (titulo.Trim().Length>50)
+        {
+            return "Título debe tener como máximo 50 digitos";
+        }
+        else if (descripcion.Trim().Length > 200)
+        {
+            return "Descripción debe tener como máximo 200 dígitos";
+        }
+        if (titulo.Trim().Length == 0)
+        {
+            return "Precio debe ser numérico";
+        }
+        else if (descripcion.Trim().Length == 0)
+        {
+            return "Precio debe tener como máximo 11 dígitos";
+        }
+
+        //Query
+        int resultadoInsercion = error.enviarError(titulo, descripcion);
+        switch (resultadoInsercion)
+        {
+            case FALLO_DE_INSERCION:
+                return "Falló la inserción";
+            default:
+                return "Éxito";
+        }
 
 
+    }
+    public List<ErrorConsulta> obtenerErrores()
+    {
+        return consultas.obtenerErrores();
+    }
+
+
+    public Boolean eliminarError(int idError)
+    {
+        return consultas.eliminarError(idError);
+    }
 }

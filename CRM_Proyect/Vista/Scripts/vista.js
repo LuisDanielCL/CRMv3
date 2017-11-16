@@ -786,6 +786,81 @@ function crearVenta() {
     });
 }
 
+// Crea un nuevo reporte de error
+// Toma los valores del form
+function enviarError() {
+    $titulo = $("#tituloInput").val();
+    $descripcion = $("#descripcionInput").val();
+    
+
+    var data = {
+        titulo: $titulo,
+        descripcion: $descripcion
+    }
+    $.ajax({
+
+        method: "POST",
+        url: "/Vista/RegistrarError.aspx/enviarError",
+        data: JSON.stringify(data),
+        contentType: "application/json; charset=utf-8",
+        dataType: "json"
+
+    }).done(function (info) {
+        //Respuesta del servidor
+        console.log(info);
+        alert(info.d)
+        document.getElementById("tituloInput").value = "";
+        document.getElementById("descripcionInput").value = "";
+
+        //alert("exito");
+    });
+}
+
+//Actualiza la tabla de personas
+function cargarError() {
+    var table = $("#tablaVerErrores").DataTable({
+        destroy: true,
+        responsive: true,
+        ajax: {
+            method: "POST",
+            url: "/Vista/VerErrores.aspx/cargarErrores",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            data: function (d) {
+                return JSON.stringify(d);
+            },
+            dataSrc: "d.data"
+        },
+        columns: [
+            { "data": "id" },
+            { "data": "titulo" },
+            { "data": "descripcion" },
+            { "data": "usuario" },
+            { "data": "accion" }
+
+        ]
+    });
+}
+
+//  Se comunica con el servidor para eliminar un contacto persona, 
+//  toma como parametro el id de la persona a eliminar  de contactos
+function eliminarError(id) {
+    var data = { idError: id }
+    $.ajax({
+
+        method: "POST",
+        url: "/Vista/VerErrores.aspx/eliminarError",
+        data: JSON.stringify(data),
+        contentType: "application/json; charset=utf-8",
+        dataType: "json"
+
+    }).done(function (info) {
+        //Respuesta del servidor
+        console.log(info);
+        cargarError();
+    });
+}
+
 // Despliega los productos de una venta específica
 // que recive como parámetro
 function verProductosVenta(id) {

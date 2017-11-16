@@ -84,6 +84,22 @@ namespace CRM_Proyect
                 + "<li><a href = 'VerPropuestas.aspx' ><i class='fa fa-circle-o'></i> Ver Propuestas</a></li>"
                 + "<li><a href = 'CrearVenta.aspx'><i class='fa fa-circle-o'></i> Crear Venta</a></li>"
                 + "<li><a href = 'VerVentas.aspx'><i class='fa fa-circle-o'></i> Ver Ventas</a></li>"
+                + "<li><a href = 'RegistrarError.aspx'><i class='fa fa-circle-o'></i> Registrar Error</a></li>"
+                + "</ul>"
+
+                + "</li>"
+
+                + "<li>"
+                + "<li class='treeview'>"
+                + "<a href = '#' >"
+                + "<i class='fa fa-circle-o'></i> <span>Errores</span>"
+                + "<span class='pull-right-container'>"
+                + "<i class='fa fa-angle-left pull-right'></i>"
+                + "</span>"
+                + "</a>"
+                + "<ul class='treeview-menu'>"
+                + "<li><a href = 'RegistrarError.aspx'><i class='fa fa-circle-o'></i> Registrar Error</a></li>"
+                + "<li><a href = 'VerErrores.aspx'><i class='fa fa-circle-o'></i>Ver errores</a></li>"
                 + "</ul>"
                 + "</li>"
                 );
@@ -103,11 +119,17 @@ namespace CRM_Proyect
                   + "</li>"
 
 
+
                   + "<li>"
                   + " <a href='Vendedores.aspx'>"
                   + "<i class='fa fa-commenting-o'></i> <span>Vendedores</span>"
                   + "</a>"
-                  + "</li>");
+                  + "</li>"
+
+                  + "<li><a href = 'RegistrarError.aspx'><i class='fa fa-circle-o'></i> Registrar Error</a></li>"
+
+                  );
+
         }
     }
 }

@@ -10,6 +10,6 @@
 namespace CRM_Proyect.Vista {
     
     
-    public partial class registrarError {
+    public partial class VerErrores {
     }
 }
