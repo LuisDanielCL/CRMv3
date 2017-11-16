@@ -7,9 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CRM_Proyect {
-    
-    
-    public partial class AgregarPersonas {
+namespace CRM_Proyect
+{
+
+
+    public partial class Vendedores
+    {
     }
 }

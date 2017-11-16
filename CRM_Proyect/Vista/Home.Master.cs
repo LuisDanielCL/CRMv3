@@ -52,6 +52,7 @@ namespace CRM_Proyect
                 + "</a>"
                 + "<ul class='treeview-menu'>"
                 + "<li><a href = 'Contactos.aspx' ><i class='fa fa-circle-o'></i> Personas</a></li>"
+                + "<li><a href = 'Vendedores.aspx' ><i class='fa fa-circle-o'></i> Vendedores</a></li>"
                 + "<li><a href = 'InfoEmpresas.aspx'><i class='fa fa-circle-o'></i> Empresas</a></li>"
                 + "<li><a href = 'AgregarPersonas.aspx'><i class='fa fa-circle-o'></i> Agregar Personas</a></li>"
                 + "<li><a href = 'AgregarEmpresa.aspx'><i class='fa fa-circle-o'></i> Agregar Empresas</a></li>"
@@ -95,10 +96,16 @@ namespace CRM_Proyect
                    + "</a>"
                    + "</li>"
 
-
                   + "<li>"
                   + " <a href='ComentarPropuesta.aspx'>"
                   + "<i class='fa fa-commenting-o'></i> <span>Propuestas de ventas</span>"
+                  + "</a>"
+                  + "</li>"
+
+
+                  + "<li>"
+                  + " <a href='Vendedores.aspx'>"
+                  + "<i class='fa fa-commenting-o'></i> <span>Vendedores</span>"
                   + "</a>"
                   + "</li>");
         }

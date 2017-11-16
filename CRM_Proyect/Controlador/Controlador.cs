@@ -90,6 +90,12 @@ public class Controlador{
         return consultas.obtenerPersonas();
     }
 
+    public List<Vendedor> obtenerVendedores()
+    {
+        //ConsultaVendedor consultasv = new ConsultaVendedor();
+        return consultas.obtenerVendedores();
+    }
+
     public Boolean registarContactoPersona(int idPersona) {
         return consultas.registarContactoPersona(idPersona);
     }

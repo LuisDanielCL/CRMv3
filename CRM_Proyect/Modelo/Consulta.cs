@@ -199,7 +199,37 @@ public class Consulta: IConsulta
         return listaUsuarios;
     }
 
-    
+    public List<Vendedor> obtenerVendedores()
+    {
+        List<Vendedor> listaVendedores = new List<Vendedor>();
+
+        iniciarConexion();
+        MySqlCommand instruccion = conexion.CreateCommand();
+        instruccion.CommandText = "call obtenerVendedores(" + idUsuarioActual + ")";
+
+        // La consulta podría generar errores
+        try
+        {
+            MySqlDataReader reader = instruccion.ExecuteReader();
+            while (reader.Read())
+            {
+                listaVendedores.Add(new Vendedor(reader["Nombre"].ToString(), reader["Primer_Apellido"].ToString(),
+                    reader["Segundo_Apellido"].ToString(), reader["Direccion"].ToString(), reader["correo"].ToString(),
+                    reader["Telefono"].ToString()));
+            }
+
+            reader.Dispose();
+            cerrarConexion();
+        }
+        catch (MySqlException ex)
+        {
+            MessageBox.Show("Falló la operación " + ex.Message);
+        }
+
+        return listaVendedores;
+    }
+
+
 
     public Boolean registarContactoPersona(int idPersona)
     {
