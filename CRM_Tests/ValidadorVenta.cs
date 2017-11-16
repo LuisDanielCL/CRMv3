@@ -24,6 +24,7 @@ namespace CRM_Tests
     class ValidadorVenta
     {
         private IVenta manager;
+        
 
         public ValidadorVenta(IVenta mgr)
         {

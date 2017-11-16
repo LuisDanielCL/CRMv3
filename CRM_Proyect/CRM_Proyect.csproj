@@ -12780,6 +12780,7 @@
     <Compile Include="Modelo\ClassTest\IConexion.cs" />
     <Compile Include="Modelo\ClassTest\IConsulta.cs" />
     <Compile Include="Modelo\ClassTest\IConsultaProducto.cs" />
+    <Compile Include="Modelo\ClassTest\IError.cs" />
     <Compile Include="Modelo\ClassTest\IInsertarUsuario.cs" />
     <Compile Include="Modelo\ClassTest\IPropuestaVenta.cs" />
     <Compile Include="Modelo\ClassTest\IVenta.cs" />
