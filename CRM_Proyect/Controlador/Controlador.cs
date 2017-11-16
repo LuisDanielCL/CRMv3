@@ -389,19 +389,19 @@ public class Controlador{
 
         if (titulo.Trim().Length>50)
         {
-            return "Título debe tener como máximo 50 digitos";
+            return "Título debe tener como máximo 50 caracteres";
         }
         else if (descripcion.Trim().Length > 200)
         {
-            return "Descripción debe tener como máximo 200 dígitos";
+            return "Descripción debe tener como máximo 200 caracteres";
         }
         if (titulo.Trim().Length == 0)
         {
-            return "Precio debe ser numérico";
+            return "Título no puede estar vacio";
         }
         else if (descripcion.Trim().Length == 0)
         {
-            return "Precio debe tener como máximo 11 dígitos";
+            return "Descripción no puede estar vacio";
         }
 
         //Query
@@ -418,12 +418,12 @@ public class Controlador{
     }
     public List<ErrorConsulta> obtenerErrores()
     {
-        return consultas.obtenerErrores();
+        return error.obtenerErrores();
     }
 
 
     public Boolean eliminarError(int idError)
     {
-        return consultas.eliminarError(idError);
+        return error.eliminarError(idError);
     }
 }

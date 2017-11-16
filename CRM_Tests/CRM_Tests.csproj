@@ -64,6 +64,8 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Fakes\FakeError.cs" />
+    <Compile Include="TestError.cs" />
     <Compile Include="Fakes\FakeConsulta.cs" />
     <Compile Include="Fakes\FakeConsultaProducto.cs" />
     <Compile Include="Fakes\FakeInsertarUsuario.cs" />
@@ -79,6 +81,7 @@
     <Compile Include="Tests_Ventas.cs" />
     <Compile Include="Test_Conexion.cs" />
     <Compile Include="ValidadorDatosUsuario.cs" />
+    <Compile Include="ValidadorError.cs" />
     <Compile Include="ValidadorProductos.cs" />
     <Compile Include="ValidadorPropuestaVenta.cs" />
     <Compile Include="ValidadorVenta.cs" />
