@@ -2,6 +2,7 @@
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Windows.Forms;
@@ -10,32 +11,19 @@ namespace CRM_Proyect.Modelo
 {
     public class ModeloError : IError
     {
-        private MySqlConnection conexion;
-        String cadenaDeConexion;
 
         const int EXITO_DE_INSERCION = 0;
         const int FALLO_DE_INSERCION = -1;
 
-
-        private void iniciarConexion()
+        IBaseDatos con;
+        public ModeloError()
         {
-            try
-            {
-                conexion = new MySqlConnection();
-                cadenaDeConexion = ";server=localhost;user id=root;database=crm;password=root";
-                conexion.ConnectionString = cadenaDeConexion;
-                conexion.Open();
-
-            }
-            catch (MySqlException)
-            {
-                MessageBox.Show("Conexion sin exito");
-            }
+            con = new BaseDatos();
         }
 
-        private void cerrarConexion()
+        public ModeloError(IBaseDatos pCon)
         {
-            conexion.Close();
+            con = pCon;       
         }
 
 
@@ -43,21 +31,19 @@ namespace CRM_Proyect.Modelo
 
         public int enviarError(String titulo, String descripcion)
         {
-            iniciarConexion();
-            MySqlCommand instruccion = conexion.CreateCommand();
-            instruccion.CommandText = "call enviarError('" + titulo + "', '" + descripcion + " '," + Consulta.idUsuarioActual + ")";
+            con.Abrir();
+            con.cargarQuery("call enviarError('" + titulo + "', '" + descripcion + " '," + Consulta.idUsuarioActual + ")");
             // La consulta podría generar errores
-            try
-            {
-                instruccion.ExecuteReader();
-                cerrarConexion();
+            if(con.ejecutarQuery())
+            { 
+                con.Cerrar();
                 return EXITO_DE_INSERCION;
             }
-            catch (MySqlException ex)
+            else
             {
-                MessageBox.Show("Falló la operación " + ex.Message);
+                MessageBox.Show("Falló la operación ");
             }
-            cerrarConexion();
+            con.Cerrar();
             return FALLO_DE_INSERCION;
         }
 
@@ -65,28 +51,27 @@ namespace CRM_Proyect.Modelo
         {
             List<ErrorConsulta> listaUsuarios = new List<ErrorConsulta>();
 
-            iniciarConexion();
-            MySqlCommand instruccion = conexion.CreateCommand();
-            instruccion.CommandText = "call obtenerErrores()";
+            con.Abrir();
+            con.cargarQuery("call obtenerErrores()");
 
             // La consulta podría generar errores
             try
             {
-                MySqlDataReader reader = instruccion.ExecuteReader();
+                IDataReader reader = con.getSalida();
                 while (reader.Read())
                 {
-                    listaUsuarios.Add(new ErrorConsulta(reader["iderror"].ToString(), reader["titulo"].ToString(),
-                        reader["descripcion"].ToString(), reader["Nombre"].ToString(),
-                        "<a href='#' onclick='eliminarError(" + reader["idError"] +
+                    listaUsuarios.Add(new ErrorConsulta(reader[0].ToString(), reader[1].ToString(),
+                        reader[2].ToString(), reader[3].ToString(),
+                        "<a href='#' onclick='eliminarError(" + reader[0] +
                         ")'><span class='glyphicon glyphicon - remove'></span><span class='glyphicon -class'>Eliminar</span></a>"));
                 }
 
                 reader.Dispose();
-                cerrarConexion();
+                con.Cerrar();
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show("Falló la operación " + ex.Message);
+                throw new FileNotFoundException("Falló la operación ");
             }
 
             return listaUsuarios;
@@ -95,24 +80,22 @@ namespace CRM_Proyect.Modelo
         public Boolean eliminarError(int idError)
         {
 
-            iniciarConexion();
-            MySqlCommand instruccion = conexion.CreateCommand();
-            instruccion.CommandText = "call borrarError(" + idError + ")";
+            con.Abrir();
+            
+            con.cargarQuery("call borrarError(" + idError + ")");
 
             // La consulta podría generar errores
-            try
+
+            if (con.ejecutarQuery())
             {
-                if (instruccion.ExecuteNonQuery() == 1)
-                {
-                    cerrarConexion();
-                    return true;
-                }
+                con.Cerrar();
+                return true;
             }
-            catch (MySqlException ex)
+            else
             {
-                MessageBox.Show("Falló la operación " + ex.Message);
+                MessageBox.Show("Falló la operación ");
             }
-            cerrarConexion();
+            con.Cerrar();
             return false;
         }
 

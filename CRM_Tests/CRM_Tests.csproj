@@ -63,6 +63,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Fakes\FakeBaseDatos.cs" />
     <Compile Include="Fakes\FakeError.cs" />
     <Compile Include="TestError.cs" />
     <Compile Include="Fakes\FakeConsulta.cs" />
