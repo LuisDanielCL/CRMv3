@@ -1,69 +1,46 @@
-﻿using System;
-using System.Text;
+﻿using CRM_Proyect.Modelo;
+using CRM_Tests.Fakes;
+using NUnit.Framework;
+using System;
 using System.Collections.Generic;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace CRM_Tests
 {
-    /// <summary>
-    /// Summary description for Text_Vendedores
-    /// </summary>
-    [TestClass]
-    public class Text_Vendedores
+    [TestFixture]
+    /**
+    *	Clase para realizar pruebas de manejo de envio y consulta de errores en el sistema.
+    *
+    */
+
+    class Test_Vendedores
     {
-        public Text_Vendedores()
+        private string Error_Titulo_Mayor_A_50_Caracteres = "Título debe tener como máximo 50 caracteres";
+        private string Error_Titulo_Vacio = "Título no puede estar vacio";
+        private string Error_Descripcion_Mayor_A_200_Caracteres = "Descripción debe tener como máximo 200 caracteres";
+        private string Error_Descripcion_Vacio = "Descripción no puede estar vacio";
+        private int Exito_Insercion = 0;
+        private int Error_Insercion = -1;
+        
+
+        [Test]
+        public void obtenerVendedores_ObtenerVendedoresCorrecto_ReturnsList()
         {
-            //
-            // TODO: Add constructor logic here
-            //
+            FakeBaseDatos fakeBD = new FakeBaseDatos(true, true, true);
+            ConsultaVendedor consultaVendedor = new ConsultaVendedor(fakeBD);
+            List<Vendedor> resultado = consultaVendedor.obtenerVendedores();
+            Assert.IsNotNull(resultado);
         }
 
-        private TestContext testContextInstance;
-
-        /// <summary>
-        ///Gets or sets the test context which provides
-        ///information about and functionality for the current test run.
-        ///</summary>
-        public TestContext TestContext
+        [Test]
+        public void obtenerVendedores_ObtenerVendedoresFalso_ReturnsNull()
         {
-            get
-            {
-                return testContextInstance;
-            }
-            set
-            {
-                testContextInstance = value;
-            }
-        }
-
-        #region Additional test attributes
-        //
-        // You can use the following additional attributes as you write your tests:
-        //
-        // Use ClassInitialize to run code before running the first test in the class
-        // [ClassInitialize()]
-        // public static void MyClassInitialize(TestContext testContext) { }
-        //
-        // Use ClassCleanup to run code after all tests in a class have run
-        // [ClassCleanup()]
-        // public static void MyClassCleanup() { }
-        //
-        // Use TestInitialize to run code before running each test 
-        // [TestInitialize()]
-        // public void MyTestInitialize() { }
-        //
-        // Use TestCleanup to run code after each test has run
-        // [TestCleanup()]
-        // public void MyTestCleanup() { }
-        //
-        #endregion
-
-        [TestMethod]
-        public void TestMethod1()
-        {
-            //
-            // TODO: Add test logic here
-            //
+            FakeBaseDatos fakeBD = new FakeBaseDatos(true, true, false);
+            ConsultaVendedor consultaVendedor = new ConsultaVendedor(fakeBD);
+            List<Vendedor> resultado = consultaVendedor.obtenerVendedores();
+            Assert.IsNotNull(resultado);
         }
     }
 }
