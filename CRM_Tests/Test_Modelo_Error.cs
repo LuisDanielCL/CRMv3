@@ -1,4 +1,5 @@
-﻿using CRM_Tests.Fakes;
+﻿using CRM_Proyect.Modelo;
+using CRM_Tests.Fakes;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
@@ -75,13 +76,12 @@ namespace CRM_Tests
             Assert.AreEqual(resultado, Error_Insercion);
         }
 
-
         [Test]
         public void obtenerErrores_ObtenerErroresCorrecto_ReturnsList()
         {
-            FakeError fakeManager = new FakeError();
-            ValidadorError instancia = new ValidadorError(fakeManager);
-            List<ErrorConsulta> resultado = instancia.obtenerErrores();
+            FakeBaseDatos fakeBD = new FakeBaseDatos(true, true, true);
+            ModeloError modeloError = new ModeloError(fakeBD);
+            List<ErrorConsulta> resultado = modeloError.obtenerErrores();
             Assert.IsNotNull(resultado);
 
         }
@@ -89,11 +89,10 @@ namespace CRM_Tests
         [Test]
         public void obtenerErrores_ObtenerErroresFalso_ReturnsNull()
         {
-            FakeError fakeManager = new FakeError();
-            fakeManager.listError = null;
-            ValidadorError instancia = new ValidadorError(fakeManager);
-            List<ErrorConsulta> resultado = instancia.obtenerErrores();
-            Assert.IsNull(resultado);
+            FakeBaseDatos fakeBD = new FakeBaseDatos(true, true, false);
+            ModeloError modeloError = new ModeloError(fakeBD);
+            List<ErrorConsulta> resultado = modeloError.obtenerErrores();
+            Assert.IsNotNull(resultado);
         }
 
         [Test]

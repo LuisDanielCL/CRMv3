@@ -35,6 +35,33 @@ function tablaContactos() {
     });
 }
 
+//Actualiza la tabla de contactos
+function cargarVendedores() {
+    var table = $("#tablaVendedores").DataTable({
+        destroy: true,
+        responsive: true,
+        ajax: {
+            method: "POST",
+            url: "/Vista/Vendedores.aspx/obtenerVendedores",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            data: function (d) {
+                return JSON.stringify(d);
+            },
+            dataSrc: "d.data"
+        },
+        columns: [
+            { "data": "nombre" },
+            { "data": "primerApellido" },
+            { "data": "segundoApellido" },
+            { "data": "direccion" },
+            { "data": "correo" },
+            { "data": "telefono" },
+            
+        ]
+    });
+}
+
 //Evento del boton empresas
 function mostrarEmpresas() {
     $("#botonEmpresa").on("click", function () {
