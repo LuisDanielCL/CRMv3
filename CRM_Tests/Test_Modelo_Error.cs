@@ -62,7 +62,7 @@ namespace CRM_Tests
             FakeError fakeManager = new FakeError();
             ValidadorError instancia = new ValidadorError(fakeManager);
             int resultado = instancia.enviarError("Titulo", "descripcion");
-            Assert.AreEqual(resultado, Exito_Insercion );
+            Assert.AreEqual(resultado, Exito_Insercion);
         }
 
 
@@ -91,8 +91,8 @@ namespace CRM_Tests
         {
             FakeBaseDatos fakeBD = new FakeBaseDatos(true, true, false);
             ModeloError modeloError = new ModeloError(fakeBD);
-            List<ErrorConsulta> resultado = modeloError.obtenerErrores();
-            Assert.IsNotNull(resultado);
+            var ex = Assert.Throws<Exception>(() => modeloError.obtenerErrores());
+            Assert.That(ex.Message, Is.EqualTo("Ocurrio un problema al obtener los errores."));
         }
 
         [Test]
