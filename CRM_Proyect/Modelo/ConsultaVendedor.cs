@@ -70,48 +70,13 @@ public class ConsultaVendedor
         conexion.Close();
     }
 
-    public Boolean validarUsuario(string usuario, string contrasena) {
-        iniciarConexion();
-        MySqlCommand instruccion = conexion.CreateCommand();
-        string contrasenaDb = null;
-        instruccion.CommandText = "call obtenerContrasena('" + usuario + "')";
-   
-        try {
-            MySqlDataReader reader = instruccion.ExecuteReader();
-            while (reader.Read())
-            {
-                contrasenaDb = reader["contraseña"].ToString();
-                if (contrasenaDb != null)
-                {
-                    contrasenaDb = Seguridad.desEncriptar(contrasenaDb);
-                    if (contrasenaDb.Equals(contrasena))
-                    {
-                        tipoCuenta = (int)reader["tipoCuenta"];
-                        idUsuarioActual = (int)reader["idusuario"];
-                        reader.Dispose();
-                        cerrarConexion();
-                        session = true;
-                        return true;
-                    }
-                }
-            }
-            
-            reader.Dispose();
-            cerrarConexion();
-        }
-        catch (MySqlException ex) {
-            MessageBox.Show("Falló la operación " + ex.Message);
-        }
-        return false;
-    }
-
     public List<Vendedor> obtenerVendedores()
     {
         List<Vendedor> listaVendedores = new List<Vendedor>();
 
         iniciarConexion();
         MySqlCommand instruccion = conexion.CreateCommand();
-        instruccion.CommandText = "call obtenerVendedores(" + idUsuarioActual + ")";
+        instruccion.CommandText = "call obtenerVendedores(" +  Consulta.idUsuarioActual + ")";
 
         // La consulta podría generar errores
         try
