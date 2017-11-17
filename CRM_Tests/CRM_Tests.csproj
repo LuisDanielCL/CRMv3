@@ -81,6 +81,7 @@
     <Compile Include="Tests_Seguridad.cs" />
     <Compile Include="Tests_Ventas.cs" />
     <Compile Include="Test_Conexion.cs" />
+    <Compile Include="Test_Modelo_Error.cs" />
     <Compile Include="ValidadorDatosUsuario.cs" />
     <Compile Include="ValidadorError.cs" />
     <Compile Include="ValidadorProductos.cs" />

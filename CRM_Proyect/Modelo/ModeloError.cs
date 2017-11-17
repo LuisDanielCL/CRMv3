@@ -69,9 +69,9 @@ namespace CRM_Proyect.Modelo
                 reader.Dispose();
                 con.Cerrar();
             }
-            catch (MySqlException ex)
+            catch (Exception)
             {
-                throw new Exception("Falló la operación ");
+                throw new Exception("Ocurrio un problema al obtener los errores.");
             }
 
             return listaUsuarios;
