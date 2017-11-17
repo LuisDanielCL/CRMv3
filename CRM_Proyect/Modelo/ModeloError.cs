@@ -71,7 +71,7 @@ namespace CRM_Proyect.Modelo
             }
             catch (MySqlException ex)
             {
-                throw new Exception("Falló la operación ");
+                throw new FileNotFoundException("Falló la operación ");
             }
 
             return listaUsuarios;
