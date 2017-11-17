@@ -28,6 +28,10 @@ public class ConsultaVendedor
     public static int idUsuarioActual ;
     public  int tipoCuenta;
     private Boolean session = false;
+
+    const int EXITO_DE_INSERCION = 0;
+    const int FALLO_DE_INSERCION = -1;
+
     public ConsultaVendedor() {
         
     }
