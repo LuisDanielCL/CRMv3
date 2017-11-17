@@ -93,8 +93,8 @@ public class Controlador{
 
     public List<Vendedor> obtenerVendedores()
     {
-        //ConsultaVendedor consultasv = new ConsultaVendedor();
-        return consultas.obtenerVendedores();
+        ConsultaVendedor consultasv = new ConsultaVendedor();
+        return consultasv.obtenerVendedores();
     }
 
     public Boolean registarContactoPersona(int idPersona) {
