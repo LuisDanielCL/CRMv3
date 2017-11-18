@@ -214,7 +214,7 @@ namespace CRM_Proyect.Modelo
                 while (reader.Read())
                 {
                     listaProductos.Add(new Producto(reader["Nombre"].ToString(), reader["Descripcion"].ToString(), reader["Precio"].ToString(),
-                        ""));
+                        reader["Categoria"].ToString(),""));
                 }
 
                 reader.Dispose();

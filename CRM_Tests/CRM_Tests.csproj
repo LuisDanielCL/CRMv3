@@ -65,6 +65,8 @@
   <ItemGroup>
     <Compile Include="Fakes\FakeBaseDatos.cs" />
     <Compile Include="Fakes\FakeError.cs" />
+    <Compile Include="Test_Vendedores.cs" />
+    <Compile Include="TestError.cs" />
     <Compile Include="Fakes\FakeConsulta.cs" />
     <Compile Include="Fakes\FakeConsultaProducto.cs" />
     <Compile Include="Fakes\FakeInsertarUsuario.cs" />
