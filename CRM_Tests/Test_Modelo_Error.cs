@@ -1,4 +1,5 @@
-﻿using CRM_Tests.Fakes;
+﻿using CRM_Proyect.Modelo;
+using CRM_Tests.Fakes;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
