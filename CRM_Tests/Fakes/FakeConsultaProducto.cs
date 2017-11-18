@@ -47,5 +47,9 @@ namespace CRM_Tests.Fakes
             return debeResponder;
         }
 
+        public int agregarProducto(string nombre, string descripcion, string precio, string categoria)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
