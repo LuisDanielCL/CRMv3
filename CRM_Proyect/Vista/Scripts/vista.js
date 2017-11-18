@@ -297,6 +297,7 @@ function tablaProductos() {
             { "data": "nombre" },
             { "data": "descripcion" },
             { "data": "precio" },
+            { "data": "categoria" },
             { "data": "accion" },
         ]
     });

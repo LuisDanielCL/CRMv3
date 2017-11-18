@@ -27,6 +27,7 @@
                   <th>Nombre</th>
                   <th>Descripción</th>
                   <th>Precio</th>
+                  <th>Categoria</th>
                   <th>Acción</th>
                 </tr>
                 </thead>
@@ -36,6 +37,7 @@
                   <th>Nombre</th>
                   <th>Descripción</th>
                   <th>Precio</th>
+                  <th>Categoria</th>
                   <th>Acción</th>
                 </tr>
                 </tfoot>
