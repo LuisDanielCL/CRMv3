@@ -31,10 +31,7 @@ namespace CRM_Tests
             manager = mgr;
         }
 
-        public int agregarProducto(String nombre, String descripcion, String precio)
-        {
-            return manager.agregarProducto(nombre, descripcion, precio);
-        }
+
         public List<Producto> obtenerProductos() {
             return manager.obtenerProductos();
         }

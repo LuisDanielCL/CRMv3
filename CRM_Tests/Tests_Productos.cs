@@ -33,19 +33,6 @@ namespace CRM_Tests
         private int Descripcion_Muy_Larga = -11;
         private int Datos_Vacios = -12;
 
-        [Test]
-        public void agregarProducto_AgregarProductoCorrecto_ReturnsExito_De_Insercion()
-        {
-            FakeConsultaProducto fakeManager = new FakeConsultaProducto();
-            fakeManager.resultadoExitoso = 0;
-            ValidadorProductos producto = new ValidadorProductos(fakeManager);
-            int  resultado = producto.agregarProducto("Computadora DELL", 
-                "Computadora DELL LATITUDE E6410", "300000");
-            Assert.AreEqual(resultado, Exito_De_Insercion);
-
-
-        }
-
 
         [Test]
         public void obtenerProductos_ObtenerProductos_ReturnsList()
