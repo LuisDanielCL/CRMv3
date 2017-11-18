@@ -61,7 +61,7 @@ namespace CRM_Proyect.Modelo
 
             iniciarConexion();
             MySqlCommand instruccion = conexion.CreateCommand();
-            instruccion.CommandText = "call obtenerProductos()";
+            instruccion.CommandText = "call obtenerRecomendaciones(" + Consulta.idUsuarioActual + ")";
 
             // La consulta podría generar errores
             try
