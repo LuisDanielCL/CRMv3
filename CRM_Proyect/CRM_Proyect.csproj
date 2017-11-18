@@ -263,16 +263,6 @@
     <Content Include="Vista\ComentarPropuesta.aspx" />
     <Content Include="Vista\registrarEntrenamientos.aspx" />
     <Content Include="Vista\Recomendaciones.aspx" />
-<<<<<<< HEAD
-=======
->>>>>>> parent of 8c33b12... crearSeguimiento
-<<<<<<< HEAD
-=======
->>>>>>> parent of 5da21cd... No haga pull
-=======
->>>>>>> parent of c81cb5b... Revert "crearSeguimiento"
-=======
->>>>>>> parent of bbfb631... Revert "No haga pull"
     <Content Include="Vista\Vendedores.aspx" />
     <Content Include="Vista\RegistrarError.aspx" />
     <Content Include="Vista\VerErrores.aspx" />

@@ -22,7 +22,7 @@
                   <input  class="form-control" id="txtDescripcion">
                 </div>  
                 <div class="form-group">
-                  <label for="descripcion">Descripción</label>
+                  <label for="descripcion">Fecha</label>
                     <input class="form-control" id="datePicker" type="datetime-local" name="bdaytime">
                 </div>  
               </div>
