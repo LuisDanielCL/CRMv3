@@ -54,11 +54,11 @@ namespace CRM_Proyect.Modelo
             conexion.Close();
         }
 
-        public int agregarProducto(String nombre, String descripcion, String precio)
+        public int agregarProducto(String nombre, String descripcion, String precio, String categoria)
         {
             iniciarConexion();
             MySqlCommand instruccion = conexion.CreateCommand();
-            instruccion.CommandText = "call insertarProducto('" + nombre + "', '" + descripcion + "', '" + precio + "')";
+            instruccion.CommandText = "call insertarProducto('" + nombre + "','" + descripcion + "','" + precio + "','" + categoria + "')";
 
             // La consulta podría generar errores
             try

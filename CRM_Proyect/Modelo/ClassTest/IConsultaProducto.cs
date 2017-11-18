@@ -22,7 +22,7 @@ namespace CRM_Proyect.Modelo.ClassTest
     */
     public interface IConsultaProducto
     {
-         int agregarProducto(String nombre, String descripcion, String precio);
+         int agregarProducto(String nombre, String descripcion, String precio, String categoria);
         List<Producto> obtenerProductos();
         Boolean borrarProducto(int idProducto);
         List<Producto> obtenerProductosDisponibles();

@@ -16,15 +16,7 @@ namespace CRM_Tests
     */
 
     class Test_Vendedores
-    {
-        private string Error_Titulo_Mayor_A_50_Caracteres = "Título debe tener como máximo 50 caracteres";
-        private string Error_Titulo_Vacio = "Título no puede estar vacio";
-        private string Error_Descripcion_Mayor_A_200_Caracteres = "Descripción debe tener como máximo 200 caracteres";
-        private string Error_Descripcion_Vacio = "Descripción no puede estar vacio";
-        private int Exito_Insercion = 0;
-        private int Error_Insercion = -1;
-        
-
+    {       
         [Test]
         public void obtenerVendedores_ObtenerVendedoresCorrecto_ReturnsList()
         {
@@ -39,8 +31,8 @@ namespace CRM_Tests
         {
             FakeBaseDatos fakeBD = new FakeBaseDatos(true, true, false);
             ConsultaVendedor consultaVendedor = new ConsultaVendedor(fakeBD);
-            List<Vendedor> resultado = consultaVendedor.obtenerVendedores();
-            Assert.IsNotNull(resultado);
+            var ex = Assert.Throws<Exception>(() => consultaVendedor.obtenerVendedores());
+            Assert.That(ex.Message, Is.EqualTo("Ocurrio un problema al obtener los vendedores."));
         }
     }
 }

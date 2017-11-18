@@ -35,6 +35,23 @@ function tablaContactos() {
     });
 }
 
+//function cargarCategorias() {
+//    var box = $("cbcategoria").dropdown({
+//        destroy: true,
+//        responsive: true,
+//        ajax: {
+//            method: "POST",
+//            url: "Vista/AgregarProducto.aspx/obtenerCategorias",
+//            contentType: "application/json; charset=utf-8",
+//            dataType: "json",
+//            data: function (d) {
+//                return JSON.stringify(d);
+//            },
+//            dataSrc: "d.data"
+//        },
+//    })
+//}
+
 //Actualiza la tabla de contactos
 function cargarVendedores() {
     var table = $("#tablaVendedores").DataTable({
@@ -436,14 +453,15 @@ function crearPropuesta() {
 //Se comunica con el servidor para insertar a la base de datos
 // un nuevo producto
 function agregarProducto() {
-
     $nombre = $("#nombre").val();
     $descripcion = $("#descripcion").val();
     $precio = $("#precio").val();
+    $categoria = $("#categoria").val();
     var data = {
         nombre: $nombre,
         descripcion: $descripcion,
-        precio: $precio
+        precio: $precio,
+        categoria: $categoria
     }
     $.ajax({
 
