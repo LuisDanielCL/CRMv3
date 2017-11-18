@@ -17,22 +17,20 @@ namespace CRM_Proyect.Modelo
 	/**
 	*	Clase para crear objetos producto cuando se hace la consulta en la base de datos.
 	*/
-    public class Producto
+    public class Recomendacion
     {
-        public Producto(String nombre, String descripcion, String precio, String categoria, String accion)
+        public Recomendacion(String nombre, String descripcion, String precio, String categoria)
         {
             this.nombre = nombre;
             this.descripcion = descripcion;
             this.precio = precio;
             this.categoria = categoria;
-            this.accion = accion;
         }
 
         public String nombre { get; set; }
         public String descripcion { get; set; }
         public String precio { get; set; }
         public String categoria { get; set; }
-        public String accion { get; set; }
 
 
 

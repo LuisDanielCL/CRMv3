@@ -1,7 +1,11 @@
-﻿using CRM_Tests.Fakes;
+﻿using CRM_Proyect.Modelo;
+using CRM_Tests.Fakes;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace CRM_Tests
 {
@@ -11,7 +15,7 @@ namespace CRM_Tests
     *
     */
 
-    class Test_Modelo_Error
+    class TestError
     {
         private string Error_Titulo_Mayor_A_50_Caracteres = "Título debe tener como máximo 50 caracteres";
         private string Error_Titulo_Vacio = "Título no puede estar vacio";
@@ -53,21 +57,22 @@ namespace CRM_Tests
 
 
         [Test]
-        public void enviarError_envioCorrecto_Return_ExitoInsercion()
+        public void enviarError_envioCorrecto_Return_0()
         {
-            FakeBaseDatos fakeBD = new FakeBaseDatos(true, true, true);
-            ModeloError modeloError = new ModeloError(fakeBD);
-            int resultado = modeloError.enviarError("Titulo", "descripcion");
-            Assert.AreEqual(resultado, Exito_Insercion);
+            FakeError fakeManager = new FakeError();
+            ValidadorError instancia = new ValidadorError(fakeManager);
+            int resultado = instancia.enviarError("Titulo", "descripcion");
+            Assert.AreEqual(resultado, Exito_Insercion );
         }
 
 
         [Test]
-        public void enviarError_ErrorInsercion_Return_ErrorInsercion()
+        public void enviarError_ErrorInsercion_Return_m1()
         {
-            FakeBaseDatos fakeBD = new FakeBaseDatos(true, false, true);
-            ModeloError modeloError = new ModeloError(fakeBD);
-            int resultado = modeloError.enviarError("Titulo", "descripcion");
+            FakeError fakeManager = new FakeError();
+            fakeManager.enviarExitoRetorno = -1;
+            ValidadorError instancia = new ValidadorError(fakeManager);
+            int resultado = instancia.enviarError("Titulo", "descripcion");
             Assert.AreEqual(resultado, Error_Insercion);
         }
 
@@ -86,25 +91,26 @@ namespace CRM_Tests
         {
             FakeBaseDatos fakeBD = new FakeBaseDatos(true, true, false);
             ModeloError modeloError = new ModeloError(fakeBD);
-            var ex = Assert.Throws<Exception>(() => modeloError.obtenerErrores());
-            Assert.That(ex.Message, Is.EqualTo("Ocurrio un problema al obtener los errores."));
+            List<ErrorConsulta> resultado = modeloError.obtenerErrores();
+            Assert.IsNotNull(resultado);
         }
 
         [Test]
         public void eliminarError_ErrorEliminar_Return_false()
         {
-            FakeBaseDatos fakeBD = new FakeBaseDatos(true, false, true);
-            ModeloError modeloError = new ModeloError(fakeBD);
-            bool resultado = modeloError.eliminarError(1);
+            FakeError fakeManager = new FakeError();
+            fakeManager.eliminarExitoRetorno = false;
+            ValidadorError instancia = new ValidadorError(fakeManager);
+            bool resultado = instancia.eliminarError(1);
             Assert.AreEqual(resultado, false);
         }
 
         [Test]
         public void eliminarError_ExitoEliminar_Return_True()
         {
-            FakeBaseDatos fakeBD = new FakeBaseDatos(true, true, true);
-            ModeloError modeloError = new ModeloError(fakeBD);
-            bool resultado = modeloError.eliminarError(1);
+            FakeError fakeManager = new FakeError();
+            ValidadorError instancia = new ValidadorError(fakeManager);
+            bool resultado = instancia.eliminarError(1);
             Assert.AreEqual(resultado, true);
         }
 

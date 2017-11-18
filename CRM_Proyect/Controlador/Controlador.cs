@@ -38,6 +38,7 @@ public class Controlador{
     private int NOMBRE_MUY_LARGO = -10;
     private int DESCRIPCION_MUY_LARGO = -11;
     private int DATO_VACIO = -12;
+    private int CATEGORIA_MUY_LARGA = -13;
 
     private static Controlador instancia = null;
     private Consulta consultas = new Consulta();
@@ -193,7 +194,7 @@ public class Controlador{
         return resultadoInsercion;
     }
 
-    public int agregarProducto(string nombre, string descripcion, string precio)
+    public int agregarProducto(string nombre, string descripcion, string precio, string categoria)
     {
         //Validando los parámetros
         if (!IsNumeric(precio))
@@ -207,20 +208,28 @@ public class Controlador{
         else if (descripcion.Length > 200)
         {
             return DESCRIPCION_MUY_LARGO;
-
+        }
+        else if (categoria.Length > 50)
+        {
+            return CATEGORIA_MUY_LARGA;
         }
         else if (precio.Length == 0 || descripcion.Length == 0 || precio.Length ==0) {
             return DATO_VACIO;
-
         }
 
-        int resultadoInsercion = producto.agregarProducto(nombre, descripcion, precio);
+        int resultadoInsercion = producto.agregarProducto(nombre, descripcion, precio, categoria);
         return resultadoInsercion;
     }
 
     public List<Producto> obtenerProductos()
     {
         return producto.obtenerProductos();
+    }
+
+    public List<Recomendacion> obtenerRecomendaciones()
+    {
+        ConsultaRecomendacion recomendacion = new ConsultaRecomendacion();
+        return recomendacion.obtenerRecomendaciones();
     }
 
     public Boolean borrarProducto(int idProducto)
