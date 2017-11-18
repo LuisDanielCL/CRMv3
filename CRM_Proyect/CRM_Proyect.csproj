@@ -178,9 +178,12 @@
     <Content Include="Vista\ComentarPropuesta.aspx" />
 <<<<<<< HEAD
     <Content Include="Vista\registrarEntrenamientos.aspx" />
+<<<<<<< HEAD
     <Content Include="Vista\Recomendaciones.aspx" />
 =======
 >>>>>>> parent of 8c33b12... crearSeguimiento
+=======
+>>>>>>> parent of 5da21cd... No haga pull
     <Content Include="Vista\Vendedores.aspx" />
     <Content Include="Vista\RegistrarError.aspx" />
     <Content Include="Vista\VerErrores.aspx" />
@@ -12783,7 +12786,6 @@
     <Compile Include="Modelo\ClassTest\IBaseDatos.cs" />
     <Compile Include="Modelo\ClassTest\IConexion.cs" />
     <Compile Include="Modelo\ClassTest\IConsulta.cs" />
-    <Compile Include="Modelo\ClassTest\IConsultaRecomendacion.cs" />
     <Compile Include="Modelo\ClassTest\IConsultaProducto.cs" />
     <Compile Include="Modelo\ClassTest\IVendedor.cs" />
     <Compile Include="Modelo\ClassTest\IError.cs" />
@@ -12791,9 +12793,7 @@
     <Compile Include="Modelo\ClassTest\IPropuestaVenta.cs" />
     <Compile Include="Modelo\ClassTest\IVenta.cs" />
     <Compile Include="Modelo\Conexion.cs" />
-    <Compile Include="Modelo\ConsultaRecomendacion.cs" />
     <Compile Include="Modelo\ConsultaVendedor.cs" />
-    <Compile Include="Modelo\Recomendacion.cs" />
     <Compile Include="Modelo\Vendedor.cs" />
     <Compile Include="Modelo\ErrorConsulta.cs" />
     <Compile Include="Modelo\ModeloError.cs" />
@@ -12820,13 +12820,6 @@
     </Compile>
     <Compile Include="Vista\registrarEntrenamientos.aspx.designer.cs">
       <DependentUpon>registrarEntrenamientos.aspx</DependentUpon>
-    </Compile>  
-    <Compile Include="Vista\Recomendaciones.aspx.cs">
-      <DependentUpon>Recomendaciones.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Vista\Recomendaciones.aspx.designer.cs">
-      <DependentUpon>Recomendaciones.aspx</DependentUpon>
     </Compile>
 =======
 >>>>>>> parent of 8c33b12... crearSeguimiento

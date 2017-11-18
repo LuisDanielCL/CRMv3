@@ -89,9 +89,9 @@ public class ConsultaVendedor : IVendedor
             con.Cerrar();
             //cerrarConexion();
         }
-        catch (Exception)
+        catch (MySqlException ex)
         {
-            throw new Exception("Ocurrio un problema al obtener los vendedores.");
+            MessageBox.Show("Falló la operación " + ex.Message);
         }
 
         return listaVendedores;

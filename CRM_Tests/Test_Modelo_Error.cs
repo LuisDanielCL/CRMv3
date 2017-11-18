@@ -1,7 +1,11 @@
-﻿using CRM_Tests.Fakes;
+﻿using CRM_Proyect.Modelo;
+using CRM_Tests.Fakes;
 using NUnit.Framework;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace CRM_Tests
 {
@@ -11,7 +15,7 @@ namespace CRM_Tests
     *
     */
 
-    class Test_Modelo_Error
+    class TestError
     {
         private string Error_Titulo_Mayor_A_50_Caracteres = "Título debe tener como máximo 50 caracteres";
         private string Error_Titulo_Vacio = "Título no puede estar vacio";

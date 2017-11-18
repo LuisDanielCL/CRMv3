@@ -19,19 +19,17 @@ namespace CRM_Proyect.Modelo
 	*/
     public class Producto
     {
-        public Producto(String nombre, String descripcion, String precio, String categoria, String accion)
+        public Producto(String nombre, String descripcion, String precio, String accion)
         {
             this.nombre = nombre;
             this.descripcion = descripcion;
             this.precio = precio;
-            this.categoria = categoria;
             this.accion = accion;
         }
 
         public String nombre { get; set; }
         public String descripcion { get; set; }
         public String precio { get; set; }
-        public String categoria { get; set; }
         public String accion { get; set; }
 
 

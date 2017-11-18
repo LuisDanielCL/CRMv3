@@ -37,7 +37,6 @@ namespace CRM_Proyect
         const int DATO_VACIO = -12;
         const int EXITO_DE_INSERCION = 0;
         const int FALLO_DE_INSERCION = -1;
-        const int CATEGORIA_MUY_LARGA = -13;
         private static string respuesta;
 
 
@@ -48,15 +47,15 @@ namespace CRM_Proyect
         }
 
         [WebMethod]
-        public static string insertarProducto(string nombre, string descripcion, string precio, string categoria)
+        public static string insertarProducto(string nombre, string descripcion, string precio)
         {
             //Validación de parámetros
-            if (!validarParametros(precio, nombre, descripcion, categoria)) {
+            if (!validarParametros(precio, nombre, descripcion)) {
                 return respuesta;
             }
 
             Controlador controlador = Controlador.getInstance();
-            int respuestaControlador = controlador.agregarProducto(nombre, descripcion, precio, categoria);
+            int respuestaControlador = controlador.agregarProducto(nombre, descripcion, precio);
             if (respuestaControlador == EXITO_DE_INSERCION)
             {
                 return "Éxito";
@@ -78,15 +77,11 @@ namespace CRM_Proyect
             {
                 return "Los datos no deben ser vacíos";
             }
-            else if (respuestaControlador == CATEGORIA_MUY_LARGA)
-            {
-                return "Categoria muy larga";
-            }
             return "Falló la inserción";
 
         }
 
-        private static Boolean validarParametros(String precio, String nombre, String descripcion, String categoria) {
+        private static Boolean validarParametros(String precio, String nombre, String descripcion) {
             if (precio.Equals(""))
             {
                 respuesta = "Precio no debe ser vacío";
@@ -104,40 +99,31 @@ namespace CRM_Proyect
                 respuesta = "Nombre no debe ser vacío";
                 return false;
             }
-           
+            
+
+
             if (descripcion.Equals(""))
             {
                 respuesta = "Descripción no debe ser vacío";
                 return false;
             }
-
-            if (categoria.Equals(""))
-            {
-                respuesta = "Categoria no debe ser vacía";
-                return false;
-            }
-
-            if (precio.Count() > 11) {
+            else if (precio.Count() > 11) {
                 respuesta = "El precio debe tener máximo 11 dígitos";
                 return false;
             }
-            if (descripcion.Count() > 200)
+            else if (descripcion.Count() > 200)
             {
                 respuesta = "La descripción  debe tener máximo 200 caracteres";
                 return false;
             }
-            if (nombre.Count() > 45)
+            else if (nombre.Count() > 45)
             {
                 respuesta = "El nombre  debe tener máximo 45 caracteres";
                 return false;
             }
-            if (categoria.Count() > 50)
-            {
-                respuesta = "La categoria debe tener máximo 50 caracteres";
-                return false;
+            else {
+                return true;
             }
-            return true;
-            
         }
 
         static bool isNumeric(string sValue)

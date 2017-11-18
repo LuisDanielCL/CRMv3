@@ -22,14 +22,10 @@
                   <label for="descripcion">Descripcion</label>
                   <input  class="form-control" id="descripcion">
                 </div>  
-                <div class="form-group">
+                  <div class="form-group">
                   <label for="precio">Precio</label>
                   <input class="form-control" id="precio">
                 </div> 
-                <div class="form-group">
-                  <label for="categoria">Categoria</label>
-                  <input class="form-control" id="categoria">
-                </div>                
               </div>
               <!-- /.box-body -->
 

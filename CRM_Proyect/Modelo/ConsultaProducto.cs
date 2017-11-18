@@ -54,11 +54,11 @@ namespace CRM_Proyect.Modelo
             conexion.Close();
         }
 
-        public int agregarProducto(String nombre, String descripcion, String precio, String categoria)
+        public int agregarProducto(String nombre, String descripcion, String precio)
         {
             iniciarConexion();
             MySqlCommand instruccion = conexion.CreateCommand();
-            instruccion.CommandText = "call insertarProducto('" + nombre + "','" + descripcion + "','" + precio + "','" + categoria + "')";
+            instruccion.CommandText = "call insertarProducto('" + nombre + "', '" + descripcion + "', '" + precio + "')";
 
             // La consulta podría generar errores
             try
@@ -92,7 +92,6 @@ namespace CRM_Proyect.Modelo
                 while (reader.Read())
                 {
                     listaProductos.Add(new Producto(reader["Nombre"].ToString(), reader["Descripcion"].ToString(), reader["Precio"].ToString(),
-                        reader["Categoria"].ToString(),
                         "<a href='#' onclick='eliminarProducto(" + reader["id"]
                         + ")'><span class='glyphicon glyphicon - remove'></span><span class='glyphicon -class'>Eliminar</span></a>"));
                 }
@@ -146,7 +145,6 @@ namespace CRM_Proyect.Modelo
                 while (reader.Read())
                 {
                     listaProductos.Add(new Producto(reader["Nombre"].ToString(), reader["Descripcion"].ToString(), reader["Precio"].ToString(),
-                        reader["Categoria"].ToString(),
                         "<a href='#' onclick='agregarAlCarrito(" + reader["id"]
                         + ")'><span class='glyphicon -class'>Agregar</span></a>"));
                 }
@@ -201,7 +199,6 @@ namespace CRM_Proyect.Modelo
                 while (reader.Read())
                 {
                     listaProductos.Add(new Producto(reader["Nombre"].ToString(), reader["Descripcion"].ToString(), reader["Precio"].ToString(),
-                        reader["Categoria"].ToString(),
                         "<a href='#' onclick='eliminarDelCarrito(" + reader["id"]
                         + ")'><span class='glyphicon -class'>Eliminar</span></a>"));
                 }

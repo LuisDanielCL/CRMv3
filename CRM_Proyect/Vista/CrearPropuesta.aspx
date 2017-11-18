@@ -27,7 +27,6 @@
                   <th>Nombre</th>
                   <th>Descripción</th>
                   <th>Precio</th>
-                  <th>Categoria</th>
                   <th>Acción</th>
                 </tr>
                 </thead>
@@ -37,7 +36,6 @@
                   <th>Nombre</th>
                   <th>Descripción</th>
                   <th>Precio</th>
-                  <th>Categoria</th>
                   <th>Acción</th>
                 </tr>
                 </tfoot>
@@ -51,7 +49,7 @@
     <br/>
     <div class="row">
             <div class="col-md-4 col-sm-4 col-xs-4">
-                <button type="button" id="botonProductosCarrito" class="btn btn-success" onclick="tablaProductosCarrito()">
+                <button type="button" id="botonProductosCarrito" class="btn btn-success">
                     <span class="glyphicon glyphicon-list" aria-hidden="true"></span> Refrescar
                 </button>
             </div>
@@ -70,7 +68,6 @@
                   <th>Nombre</th>
                   <th>Descripción</th>
                   <th class="numero">Precio</th>
-                  <th>Categoria</th>
                   <th>Acción</th>
                 </tr>
                 </thead>
@@ -80,7 +77,6 @@
                   <th>Nombre</th>
                   <th>Descripción</th>
                   <th class="numero">Precio</th>
-                  <th>Categoria</th>
                   <th>Acción</th>
                 </tr>
                 </tfoot>
