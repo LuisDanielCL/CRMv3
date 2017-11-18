@@ -419,9 +419,47 @@ public class Controlador{
             default:
                 return "Éxito";
         }
+    }
+
+    public string crearEntrenamiento(string titulo, string descripcion,string fecha)
+    {
+        //Validando los parámetros
+
+        if (titulo.Trim().Length > 50)
+        {
+            return "Título debe tener como máximo 50 caracteres";
+        }
+        else if (descripcion.Trim().Length > 200)
+        {
+            return "Descripción debe tener como máximo 200 caracteres";
+        }
+        if (titulo.Trim().Length == 0)
+        {
+            return "Título no puede estar vacio";
+        }
+        else if (descripcion.Trim().Length == 0)
+        {
+            return "Descripción no puede estar vacio";
+        }
+        else if (fecha.Trim().Length == 0)
+        {
+            return "Fecha no puede estar vacio";
+        }
+
+        //Query
+        int resultadoInsercion = 0;// error.enviarError(titulo, descripcion);
+        switch (resultadoInsercion)
+        {
+            case FALLO_DE_INSERCION:
+                return "Falló la inserción";
+            default:
+                return "Éxito";
+        }
 
 
     }
+
+
     public List<ErrorConsulta> obtenerErrores()
     {
         return error.obtenerErrores();
