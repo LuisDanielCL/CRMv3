@@ -8,6 +8,8 @@
  *	Jonathan Rodríguez
  *	Melissa Molina Corrales
  *	Edwin Cen Xu
+ *	Daniel Cordero Leonhardes
+ *	Miguel Jimenez Torres
  */
 
 using System;

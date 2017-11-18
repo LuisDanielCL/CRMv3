@@ -48,6 +48,7 @@ public class Controlador{
     private ConsultaComentario comentario = new ConsultaComentario();
     private ConsultaVenta venta = new ConsultaVenta();
     private ModeloError error = new ModeloError();
+    private Entrenamiento entrenamiento = new Entrenamiento();
 
     public Controlador() {
         
@@ -456,7 +457,7 @@ public class Controlador{
         }
 
         //Query
-        int resultadoInsercion = 0;// error.enviarError(titulo, descripcion);
+        int resultadoInsercion =  entrenamiento.crearEntrenamiento(titulo, descripcion,fecha);
         switch (resultadoInsercion)
         {
             case FALLO_DE_INSERCION:
@@ -472,6 +473,12 @@ public class Controlador{
     public List<ErrorConsulta> obtenerErrores()
     {
         return error.obtenerErrores();
+    }
+
+
+    public List<entrenamientoConsulta> obtenerEntrenamientos()
+    {
+        return entrenamiento.obtenerEntrenamientos();
     }
 
 

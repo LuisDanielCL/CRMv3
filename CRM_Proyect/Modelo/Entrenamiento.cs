@@ -1,41 +1,36 @@
 ﻿using CRM_Proyect.Modelo.ClassTest;
-using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Web;
-using System.Windows.Forms;
 
 namespace CRM_Proyect.Modelo
 {
-    public class ModeloError : IError
+    public class Entrenamiento
     {
-
         const int EXITO_DE_INSERCION = 0;
         const int FALLO_DE_INSERCION = -1;
 
         IBaseDatos con;
-        public ModeloError()
+        public Entrenamiento()
         {
             con = new BaseDatos();
         }
 
-        public ModeloError(IBaseDatos pCon)
+        public Entrenamiento(IBaseDatos pCon)
         {
             con = pCon;
         }
 
 
-
-
-        public int enviarError(String titulo, String descripcion)
+        public int crearEntrenamiento(String titulo, String descripcion, String fecha)
         {
             con.Abrir();
-            con.cargarQuery("call enviarError('" + titulo + "', '" + descripcion + " '," + Consulta.idUsuarioActual + ")");
+            con.cargarQuery("call crearEntrenamiento('" + titulo + "', '" + descripcion + " ','" + fecha + "')");
             // La consulta podría generar errores
-            if(con.ejecutarQuery())
-            { 
+            if (con.ejecutarQuery())
+            {
                 con.Cerrar();
                 return EXITO_DE_INSERCION;
             }
@@ -43,12 +38,13 @@ namespace CRM_Proyect.Modelo
             return FALLO_DE_INSERCION;
         }
 
-        public List<ErrorConsulta> obtenerErrores()
+
+        public List<entrenamientoConsulta> obtenerEntrenamientos()
         {
-            List<ErrorConsulta> listaUsuarios = new List<ErrorConsulta>();
+            List<entrenamientoConsulta> listaEntrenamientos = new List<entrenamientoConsulta>();
 
             con.Abrir();
-            con.cargarQuery("call obtenerErrores()");
+            con.cargarQuery("call obtenerEntrenamientos()");
 
             // La consulta podría generar errores
             try
@@ -56,9 +52,9 @@ namespace CRM_Proyect.Modelo
                 IDataReader reader = con.getSalida();
                 while (reader.Read())
                 {
-                    listaUsuarios.Add(new ErrorConsulta(reader[0].ToString(), reader[1].ToString(),
+                    listaEntrenamientos.Add(new entrenamientoConsulta(reader[0].ToString(), reader[1].ToString(),
                         reader[2].ToString(), reader[3].ToString(),
-                        "<a href='#' onclick='eliminarError(" + reader[0] +
+                        "<a href='#' onclick='eliminarEntrenamiento(" + reader[0] +
                         ")'><span class='glyphicon glyphicon - remove'></span><span class='glyphicon -class'>Eliminar</span></a>"));
                 }
 
@@ -67,17 +63,17 @@ namespace CRM_Proyect.Modelo
             }
             catch (Exception)
             {
-                throw new Exception("Ocurrio un problema al obtener los errores.");
+                throw new Exception("Ocurrio un problema al obtener los entrenamientos.");
             }
 
-            return listaUsuarios;
+            return listaEntrenamientos;
         }
 
         public Boolean eliminarError(int idError)
         {
 
             con.Abrir();
-            
+
             con.cargarQuery("call borrarError(" + idError + ")");
 
             // La consulta podría generar errores
@@ -90,6 +86,5 @@ namespace CRM_Proyect.Modelo
             con.Cerrar();
             return false;
         }
-
     }
 }

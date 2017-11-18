@@ -3,16 +3,16 @@
     <title> Cargar errores</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-<div class="row">
-            <div class="col-md-3 col-sm-3 col-xs-3">
-                <h2 class="text-center">Agregar Personas</h2>                
-            </div>
-            <div class="col-md-4 col-sm-4 col-xs-4">
-                <button type="button" id="botonListarPersonas" class="btn btn-success" onclick ="cargarError()">
-                    <span class="glyphicon glyphicon-list" aria-hidden="true"></span> Listar
-                </button>
-            </div>
+    <div class="row">
+        <div class="col-md-3 col-sm-3 col-xs-3">
+            <h2 class="text-center">Ver Errores</h2>                
         </div>
+        <div class="col-md-4 col-sm-4 col-xs-4">
+            <button type="button" id="botonListarPersonas" class="btn btn-success" onclick ="cargarError()">
+                <span class="glyphicon glyphicon-list" aria-hidden="true"></span> Listar
+            </button>
+        </div>
+    </div>
      <br />
         <div class="row">
         <div class="col-xs-12">
@@ -48,7 +48,7 @@
           </div>
           <!-- /.box -->
        </div>
-       </div>
+    </div>
 </asp:Content>
 <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder3" runat="server">
     <script src="bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
@@ -68,7 +68,6 @@
         'destroy': true,
         'responsive': true,
     });
-    mostrarPersonas();
 
   })
 </script>

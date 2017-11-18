@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CRM_Proyect.Modelo;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -21,6 +22,29 @@ namespace CRM_Proyect.Vista
 
             Controlador controlador = Controlador.getInstance();
             return controlador.crearEntrenamiento(titulo, descripcion,fecha);
+        }
+
+        
+        [WebMethod]
+        public static object cargarEntrenamientos()
+        {
+            Controlador controlador = Controlador.getInstance();
+            List<entrenamientoConsulta> entranamientos = controlador.obtenerEntrenamientos();
+            object json = new { data = entranamientos };
+            return json;
+        }
+
+        [WebMethod]
+        public static string eliminarError(int idError)
+        {
+            Controlador controlador = Controlador.getInstance();
+
+            if (controlador.eliminarError(idError))
+            {
+                return "true";
+            }
+            return "false";
+
         }
     }
 }

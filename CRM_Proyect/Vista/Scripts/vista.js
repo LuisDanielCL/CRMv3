@@ -868,7 +868,34 @@ function crearEntrenamiento() {
     });
 }
 
-//Actualiza la tabla de personas
+
+//Actualiza la tabla de entrenamientosRegistro
+function cargarEntrenamientosRegistro() {
+    var table = $("#tablaEntrenamientos").DataTable({
+        destroy: true,
+        responsive: true,
+        ajax: {
+            method: "POST",
+            url: "/Vista/registrarEntrenamientos.aspx/cargarEntrenamientos",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            data: function (d) {
+                return JSON.stringify(d);
+            },
+            dataSrc: "d.data"
+        },
+        columns: [
+            { "data": "id" },
+            { "data": "titulo" },
+            { "data": "descripcion" },
+            { "data": "usuario" },
+            { "data": "accion" }
+
+        ]
+    });
+}
+
+//Actualiza la tabla de error
 function cargarError() {
     var table = $("#tablaVerErrores").DataTable({
         destroy: true,

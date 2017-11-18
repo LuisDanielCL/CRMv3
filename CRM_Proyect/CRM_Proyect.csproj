@@ -12875,6 +12875,8 @@
     <Compile Include="Modelo\Conexion.cs" />
     <Compile Include="Modelo\ConsultaRecomendacion.cs" />
     <Compile Include="Modelo\ConsultaVendedor.cs" />
+    <Compile Include="Modelo\Entrenamiento.cs" />
+    <Compile Include="Modelo\entrenamientoConsulta.cs" />
     <Compile Include="Modelo\Recomendacion.cs" />
     <Compile Include="Modelo\Vendedor.cs" />
     <Compile Include="Modelo\ErrorConsulta.cs" />
@@ -12901,7 +12903,7 @@
     </Compile>
     <Compile Include="Vista\registrarEntrenamientos.aspx.designer.cs">
       <DependentUpon>registrarEntrenamientos.aspx</DependentUpon>
-    </Compile>  
+    </Compile>
     <Compile Include="Vista\Recomendaciones.aspx.cs">
       <DependentUpon>Recomendaciones.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
