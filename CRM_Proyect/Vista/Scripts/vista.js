@@ -816,6 +816,37 @@ function enviarError() {
     });
 }
 
+function crearEntrenamiento() {
+    $titulo = $("#txtTitulo").val();
+    $descripcion = $("#txtDescripcion").val();
+    $fecha = $("#datePicker").val();
+
+
+    var data = {
+        titulo: $titulo,
+        descripcion: $descripcion,
+        fecha: $fecha
+    }
+    $.ajax({
+
+        method: "POST",
+        url: "/Vista/registrarEntrenamientos.aspx/crearEntrenamiento",
+        data: JSON.stringify(data),
+        contentType: "application/json; charset=utf-8",
+        dataType: "json"
+
+    }).done(function (info) {
+        //Respuesta del servidor
+        console.log(info);
+        alert(info.d)
+        document.getElementById("txtTitulo").value = "";
+        document.getElementById("txtDescripcion").value = "";
+        document.getElementById("datePicker").value = "";
+
+        //alert("exito");
+    });
+}
+
 //Actualiza la tabla de personas
 function cargarError() {
     var table = $("#tablaVerErrores").DataTable({
