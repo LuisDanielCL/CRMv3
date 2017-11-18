@@ -15,6 +15,7 @@ using System.Collections.Generic;
 using MySql.Data.MySqlClient;
 using System.Windows.Forms;
 using CRM_Proyect.Modelo.ClassTest;
+using System.Data;
 
 namespace CRM_Proyect.Modelo
 {
@@ -22,51 +23,36 @@ namespace CRM_Proyect.Modelo
     *	Clase que contiene los métodos necesarios para realizar consultas a la base de datos relacionadas con los productos.
     *
     */
-    public class ConsultaRecomendacion:IConsultaRecomendacion
+    public class ConsultaRecomendacion: IConsultaRecomendacion
     {
         private int EXITO_DE_INSERCION = 0;
         private int FALLO_DE_INSERCION = -1;
-        private MySqlConnection conexion;
-        String cadenaDeConexion;
+        int idActual;
+
+        IBaseDatos con;
         public ConsultaRecomendacion()
         {
-
+            con = new BaseDatos();
+            idActual = Consulta.idUsuarioActual;
         }
 
-        private void iniciarConexion()
+        public ConsultaRecomendacion(IBaseDatos pCon)
         {
-            try
-            {
-                conexion = new MySqlConnection();
-                cadenaDeConexion = ";server=localhost;user id=root;database=crm;password=root";
-                conexion.ConnectionString = cadenaDeConexion;
-                conexion.Open();
-
-            }
-            catch (MySqlException)
-            {
-                MessageBox.Show("Conexion sin exito");
-            }
+            con = pCon;
+            idActual = 34;
         }
-
-        private void cerrarConexion()
-        {
-            conexion.Close();
-        }
-
 
         public List<Recomendacion> obtenerRecomendaciones()
         {
             List<Recomendacion> listaRecomendaciones = new List<Recomendacion>();
 
-            iniciarConexion();
-            MySqlCommand instruccion = conexion.CreateCommand();
-            instruccion.CommandText = "call obtenerProductos()";
-
+            con.Abrir();
+            con.cargarQuery("call obtenerRecomendaciones(" + idActual + ")");
+          
             // La consulta podría generar errores
             try
             {
-                MySqlDataReader reader = instruccion.ExecuteReader();
+                IDataReader reader = con.getSalida();
                 while (reader.Read())
                 {
                     listaRecomendaciones.Add(new Recomendacion(reader["Nombre"].ToString(), reader["Descripcion"].ToString(), reader["Precio"].ToString(),
@@ -74,11 +60,11 @@ namespace CRM_Proyect.Modelo
                 }
 
                 reader.Dispose();
-                cerrarConexion();
+                con.Cerrar();
             }
-            catch (MySqlException ex)
+            catch (Exception)
             {
-                MessageBox.Show("Falló la operación " + ex.Message);
+                throw new Exception("Ocurrio un problema al obtener las recomendaciones.");
             }
 
             return listaRecomendaciones;
