@@ -42,35 +42,12 @@ public class ConsultaVendedor : IVendedor
         con = pCon;
     }
 
-
-    //private void iniciarConexion() {
-    //    try
-    //    {
-    //        conexion = new MySqlConnection();
-    //        cadenaDeConexion = ";server=localhost;user id=root;database=crm;password=root";
-    //        conexion.ConnectionString = cadenaDeConexion;
-    //        conexion.Open();
-            
-    //    }
-    //    catch (MySqlException ex) {
-    //        MessageBox.Show("Conexion sin exito" + ex.Message);
-    //    }
-    //}
-    //private void cerrarConexion() {
-    //    conexion.Close();
-    //}
-
     public List<Vendedor> obtenerVendedores()
     {
         List<Vendedor> listaVendedores = new List<Vendedor>();
 
-        //iniciarConexion();
-
         con.Abrir();
         con.cargarQuery("call obtenerVendedores(" + Consulta.idUsuarioActual + ")");
-
-        //MySqlCommand instruccion = conexion.CreateCommand();
-        //instruccion.CommandText = "call obtenerVendedores(" +  Consulta.idUsuarioActual + ")";
 
         // La consulta podría generar errores
         try

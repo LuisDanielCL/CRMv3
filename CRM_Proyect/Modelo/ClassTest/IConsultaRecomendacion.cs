@@ -16,10 +16,6 @@ using System.Collections.Generic;
 
 namespace CRM_Proyect.Modelo.ClassTest
 {
-    /**
-    *	Interface que contiene los métodos necesarios para probar el manejo de productos.
-    *
-    */
     public interface IConsultaRecomendacion
     {
         List<Recomendacion> obtenerRecomendaciones();
