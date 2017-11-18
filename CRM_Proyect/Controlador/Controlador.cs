@@ -226,6 +226,12 @@ public class Controlador{
         return producto.obtenerProductos();
     }
 
+    public List<Recomendacion> obtenerRecomendaciones()
+    {
+        ConsultaRecomendacion recomendacion = new ConsultaRecomendacion();
+        return recomendacion.obtenerRecomendaciones();
+    }
+
     public Boolean borrarProducto(int idProducto)
     {
         return producto.borrarProducto(idProducto);

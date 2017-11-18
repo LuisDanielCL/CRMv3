@@ -354,6 +354,7 @@ function tablaProductosDisponibles() {
             { "data": "nombre" },
             { "data": "descripcion" },
             { "data": "precio" },
+            { "data": "categoria" },
             { "data": "accion" },
         ]
     });
@@ -378,6 +379,7 @@ function tablaProductosCarrito() {
             { "data": "nombre" },
             { "data": "descripcion" },
             { "data": "precio" },
+            { "data": "categoria" },
             { "data": "accion" },
         ]
     });
@@ -897,5 +899,28 @@ function verProductosVenta(id) {
         $.each(info.d.data, function (index, value) {
             llenarTablaProductoPropuesta(info.d.data, index, value);
         });
+    });
+}
+
+function tablaRecomendaciones() {
+    var table = $("#tablaRecomendaciones").DataTable({
+        destroy: true,
+        responsive: true,
+        ajax: {
+            method: "POST",
+            url: "/Vista/Recomendaciones.aspx/cargarRecomendaciones",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            data: function (d) {
+                return JSON.stringify(d);
+            },
+            dataSrc: "d.data"
+        },
+        columns: [
+            { "data": "nombre" },
+            { "data": "descripcion" },
+            { "data": "precio" },
+            { "data": "categoria" },
+        ]
     });
 }

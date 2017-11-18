@@ -176,6 +176,7 @@
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Vista\CrearVenta.aspx" />
     <Content Include="Vista\ComentarPropuesta.aspx" />
+    <Content Include="Vista\Recomendaciones.aspx" />
     <Content Include="Vista\Vendedores.aspx" />
     <Content Include="Vista\RegistrarError.aspx" />
     <Content Include="Vista\VerErrores.aspx" />
@@ -12778,6 +12779,7 @@
     <Compile Include="Modelo\ClassTest\IBaseDatos.cs" />
     <Compile Include="Modelo\ClassTest\IConexion.cs" />
     <Compile Include="Modelo\ClassTest\IConsulta.cs" />
+    <Compile Include="Modelo\ClassTest\IConsultaRecomendacion.cs" />
     <Compile Include="Modelo\ClassTest\IConsultaProducto.cs" />
     <Compile Include="Modelo\ClassTest\IVendedor.cs" />
     <Compile Include="Modelo\ClassTest\IError.cs" />
@@ -12785,7 +12787,9 @@
     <Compile Include="Modelo\ClassTest\IPropuestaVenta.cs" />
     <Compile Include="Modelo\ClassTest\IVenta.cs" />
     <Compile Include="Modelo\Conexion.cs" />
+    <Compile Include="Modelo\ConsultaRecomendacion.cs" />
     <Compile Include="Modelo\ConsultaVendedor.cs" />
+    <Compile Include="Modelo\Recomendacion.cs" />
     <Compile Include="Modelo\Vendedor.cs" />
     <Compile Include="Modelo\ErrorConsulta.cs" />
     <Compile Include="Modelo\ModeloError.cs" />
@@ -12805,6 +12809,13 @@
     </Compile>
     <Compile Include="Modelo\ConsultaVenta.cs" />
     <Compile Include="Modelo\Venta.cs" />
+    <Compile Include="Vista\Recomendaciones.aspx.cs">
+      <DependentUpon>Recomendaciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\Recomendaciones.aspx.designer.cs">
+      <DependentUpon>Recomendaciones.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Vista\Vendedores.aspx.cs">
       <DependentUpon>Vendedores.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
