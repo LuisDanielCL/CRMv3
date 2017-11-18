@@ -53,21 +53,22 @@ namespace CRM_Tests
 
 
         [Test]
-        public void enviarError_envioCorrecto_Return_ExitoInsercion()
+        public void enviarError_envioCorrecto_Return_0()
         {
-            FakeBaseDatos fakeBD = new FakeBaseDatos(true, true, true);
-            ModeloError modeloError = new ModeloError(fakeBD);
-            int resultado = modeloError.enviarError("Titulo", "descripcion");
+            FakeError fakeManager = new FakeError();
+            ValidadorError instancia = new ValidadorError(fakeManager);
+            int resultado = instancia.enviarError("Titulo", "descripcion");
             Assert.AreEqual(resultado, Exito_Insercion);
         }
 
 
         [Test]
-        public void enviarError_ErrorInsercion_Return_ErrorInsercion()
+        public void enviarError_ErrorInsercion_Return_m1()
         {
-            FakeBaseDatos fakeBD = new FakeBaseDatos(true, false, true);
-            ModeloError modeloError = new ModeloError(fakeBD);
-            int resultado = modeloError.enviarError("Titulo", "descripcion");
+            FakeError fakeManager = new FakeError();
+            fakeManager.enviarExitoRetorno = -1;
+            ValidadorError instancia = new ValidadorError(fakeManager);
+            int resultado = instancia.enviarError("Titulo", "descripcion");
             Assert.AreEqual(resultado, Error_Insercion);
         }
 
@@ -93,18 +94,19 @@ namespace CRM_Tests
         [Test]
         public void eliminarError_ErrorEliminar_Return_false()
         {
-            FakeBaseDatos fakeBD = new FakeBaseDatos(true, false, true);
-            ModeloError modeloError = new ModeloError(fakeBD);
-            bool resultado = modeloError.eliminarError(1);
+            FakeError fakeManager = new FakeError();
+            fakeManager.eliminarExitoRetorno = false;
+            ValidadorError instancia = new ValidadorError(fakeManager);
+            bool resultado = instancia.eliminarError(1);
             Assert.AreEqual(resultado, false);
         }
 
         [Test]
         public void eliminarError_ExitoEliminar_Return_True()
         {
-            FakeBaseDatos fakeBD = new FakeBaseDatos(true, true, true);
-            ModeloError modeloError = new ModeloError(fakeBD);
-            bool resultado = modeloError.eliminarError(1);
+            FakeError fakeManager = new FakeError();
+            ValidadorError instancia = new ValidadorError(fakeManager);
+            bool resultado = instancia.eliminarError(1);
             Assert.AreEqual(resultado, true);
         }
 

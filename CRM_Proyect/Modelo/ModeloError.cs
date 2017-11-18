@@ -39,6 +39,10 @@ namespace CRM_Proyect.Modelo
                 con.Cerrar();
                 return EXITO_DE_INSERCION;
             }
+            else
+            {
+                MessageBox.Show("Falló la operación ");
+            }
             con.Cerrar();
             return FALLO_DE_INSERCION;
         }
@@ -86,6 +90,10 @@ namespace CRM_Proyect.Modelo
             {
                 con.Cerrar();
                 return true;
+            }
+            else
+            {
+                MessageBox.Show("Falló la operación ");
             }
             con.Cerrar();
             return false;
