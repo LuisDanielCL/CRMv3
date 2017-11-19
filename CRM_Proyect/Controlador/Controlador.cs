@@ -481,9 +481,34 @@ public class Controlador{
         return entrenamiento.obtenerEntrenamientos();
     }
 
+    public Boolean eliminarEntrenamiento(int idEntrenamiento)
+    {
+        return entrenamiento.eliminarEntrenamiento(idEntrenamiento);
+    }
 
     public Boolean eliminarError(int idError)
     {
         return error.eliminarError(idError);
     }
+
+    public List<entrenamientoConsulta> obtenerEntrenamientosNoLLevados()
+    {
+        return entrenamiento.obtenerEntrenamientosNoLLevados();
+    }
+
+    public List<entrenamientoConsulta> obtenerMisEntrenamientos()
+    {
+        return entrenamiento.obtenerMisEntrenamientos();
+    }
+
+    public Boolean agregarMiEntrenamiento(int idEntrenamiento)
+    {
+        return entrenamiento.agregarMiEntrenamiento(idEntrenamiento);
+    }
+
+    public Boolean eliminarMiEntrenamiento(int idEntrenamiento, int idUsuario)
+    {
+        return entrenamiento.eliminarMiEntrenamiento(idEntrenamiento, idUsuario);
+    }
+
 }

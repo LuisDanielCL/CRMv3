@@ -115,7 +115,7 @@ namespace CRM_Proyect
                 + "</a>"
                 + "<ul class='treeview-menu'>"
                 + "<li><a href = 'registrarEntrenamientos.aspx'><i class='fa fa-circle-o'></i>Registrar entrenamientos</a></li>"
-                + "<li><a href = 'verEntrenamientos.aspx'><i class='fa fa-circle-o'></i>Ver entrenamientos</a></li>"
+                + "<li><a href = 'seguirEntrenamientos.aspx'><i class='fa fa-circle-o'></i>Seguir entrenamientos</a></li>"
                 + "</ul>"
                 + "</li>"
 
@@ -151,7 +151,7 @@ namespace CRM_Proyect
                   + "</li>"
 
                   + "<li><a href = 'RegistrarError.aspx'><i class='fa fa-circle-o'></i> Registrar Error</a></li>"
-
+                  + "<li><a href = 'seguirEntrenamientos.aspx'><i class='fa fa-circle-o'></i>Seguir entrenamientos</a></li>"
                   );
 
         }

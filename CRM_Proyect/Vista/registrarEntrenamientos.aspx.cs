@@ -35,11 +35,11 @@ namespace CRM_Proyect.Vista
         }
 
         [WebMethod]
-        public static string eliminarError(int idError)
+        public static string eliminarEntrenamiento(int idEntrenamiento)
         {
             Controlador controlador = Controlador.getInstance();
 
-            if (controlador.eliminarError(idError))
+            if (controlador.eliminarEntrenamiento(idEntrenamiento))
             {
                 return "true";
             }

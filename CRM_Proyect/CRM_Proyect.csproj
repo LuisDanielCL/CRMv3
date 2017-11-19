@@ -263,6 +263,7 @@
     <Content Include="Vista\ComentarPropuesta.aspx" />
     <Content Include="Vista\registrarEntrenamientos.aspx" />
     <Content Include="Vista\Recomendaciones.aspx" />
+    <Content Include="Vista\seguirEntrenamientos.aspx" />
     <Content Include="Vista\Vendedores.aspx" />
     <Content Include="Vista\RegistrarError.aspx" />
     <Content Include="Vista\VerErrores.aspx" />
@@ -12910,6 +12911,13 @@
     </Compile>
     <Compile Include="Vista\Recomendaciones.aspx.designer.cs">
       <DependentUpon>Recomendaciones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Vista\seguirEntrenamientos.aspx.cs">
+      <DependentUpon>seguirEntrenamientos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Vista\seguirEntrenamientos.aspx.designer.cs">
+      <DependentUpon>seguirEntrenamientos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Vista\Vendedores.aspx.cs">
       <DependentUpon>Vendedores.aspx</DependentUpon>

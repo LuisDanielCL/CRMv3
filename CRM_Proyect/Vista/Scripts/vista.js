@@ -863,7 +863,7 @@ function crearEntrenamiento() {
         document.getElementById("txtTitulo").value = "";
         document.getElementById("txtDescripcion").value = "";
         document.getElementById("datePicker").value = "";
-
+        cargarEntrenamientosRegistro();
         //alert("exito");
     });
 }
@@ -888,7 +888,7 @@ function cargarEntrenamientosRegistro() {
             { "data": "id" },
             { "data": "titulo" },
             { "data": "descripcion" },
-            { "data": "usuario" },
+            { "data": "fecha" },
             { "data": "accion" }
 
         ]
@@ -921,8 +921,109 @@ function cargarError() {
     });
 }
 
-//  Se comunica con el servidor para eliminar un contacto persona, 
-//  toma como parametro el id de la persona a eliminar  de contactos
+//Actualiza la tabla de error
+function cargarSeguirEntrenamientos() {
+    var table = $("#tablaSeguirEntrenamientos").DataTable({
+        destroy: true,
+        responsive: true,
+        ajax: {
+            method: "POST",
+            url: "/Vista/seguirEntrenamientos.aspx/obtenerEntrenamientosNoLLevados",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            data: function (d) {
+                return JSON.stringify(d);
+            },
+            dataSrc: "d.data"
+        },
+        columns: [
+            { "data": "id" },
+            { "data": "titulo" },
+            { "data": "descripcion" },
+            { "data": "fecha" },
+            { "data": "accion" }
+
+        ]
+    });
+}
+
+
+
+//Actualiza la tabla de error
+function cagargarMisEntrenamientos() {
+    var table = $("#tablaMisEntranamientos").DataTable({
+        destroy: true,
+        responsive: true,
+        ajax: {
+            method: "POST",
+            url: "/Vista/seguirEntrenamientos.aspx/obtenerMisEntrenamientos",
+            contentType: "application/json; charset=utf-8",
+            dataType: "json",
+            data: function (d) {
+                return JSON.stringify(d);
+            },
+            dataSrc: "d.data"
+        },
+        columns: [
+            { "data": "id" },
+            { "data": "titulo" },
+            { "data": "descripcion" },
+            { "data": "fecha" },
+            { "data": "accion" }
+
+        ]
+    });
+}
+
+
+
+//  Se comunica con el servidor para agregar entrenamiento a misEntrenamientos
+function agregarMiEntrenamiento(pidEntrenamiento, pidUsuario) {
+    var data = {
+        idEntrenamiento: pidEntrenamiento
+        }
+    $.ajax({
+
+        method: "POST",
+        url: "/Vista/seguirEntrenamientos.aspx/agregarMiEntrenamiento",
+        data: JSON.stringify(data),
+        contentType: "application/json; charset=utf-8",
+        dataType: "json"
+
+    }).done(function (info) {
+        //Respuesta del servidor
+        console.log(info);
+        cargarSeguirEntrenamientos();
+        cagargarMisEntrenamientos();
+    });
+}
+
+//  Se comunica con el servidor para agregar entrenamiento a misEntrenamientos
+function eliminarMiEntrenamiento(pidEntrenamiento,pidUsuario) {
+    var data = {
+        idEntrenamiento: pidEntrenamiento,
+        idUsuario: pidUsuario
+        }
+    $.ajax({
+
+        method: "POST",
+        url: "/Vista/seguirEntrenamientos.aspx/eliminarMiEntrenamiento",
+        data: JSON.stringify(data),
+        contentType: "application/json; charset=utf-8",
+        dataType: "json"
+
+    }).done(function (info) {
+        //Respuesta del servidor
+        console.log(info);
+        cargarSeguirEntrenamientos();
+        cagargarMisEntrenamientos();
+    });
+}
+
+
+
+//  Se comunica con el servidor para eliminar un error, 
+//  toma como parametro el id del error
 function eliminarError(id) {
     var data = { idError: id }
     $.ajax({
@@ -937,6 +1038,26 @@ function eliminarError(id) {
         //Respuesta del servidor
         console.log(info);
         cargarError();
+    });
+}
+
+
+//  Se comunica con el servidor para eliminar un entrenamiento, 
+//  toma como parametro el id del entrenamiento
+function eliminarEntrenamiento(id) {
+    var data = { idEntrenamiento: id }
+    $.ajax({
+
+        method: "POST",
+        url: "/Vista/registrarEntrenamientos.aspx/eliminarEntrenamiento",
+        data: JSON.stringify(data),
+        contentType: "application/json; charset=utf-8",
+        dataType: "json"
+
+    }).done(function (info) {
+        //Respuesta del servidor
+        console.log(info);
+        cargarEntrenamientosRegistro();
     });
 }
 

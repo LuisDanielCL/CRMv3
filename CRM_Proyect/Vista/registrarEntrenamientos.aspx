@@ -48,9 +48,9 @@
           </div>
           <!-- /.box -->
        </div>
-    </div>
-    
-        <div class="col-md-6">
+
+
+                    <div class="col-md-6">
           <!-- general form elements -->
           <div class="box box-primary">
             <div class="box-header with-border">
@@ -81,6 +81,14 @@
             </form>
           </div>
         </div>
+    </div>
+    
+
+
+    
+</asp:Content>
+
+    <asp:Content ID="Content3" ContentPlaceHolderID="ContentPlaceHolder3" runat="server">
     <script src="Scripts/vista.js"></script>
     <script src="bower_components/datatables.net/js/jquery.dataTables.min.js"></script>
     <script src="bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
